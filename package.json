@@ -1,0 +1,38 @@
+{
+  "name": "lf-calculator-desktop",
+  "version": "1.0.0",
+  "description": "LF Calculator desktop app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^32.2.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.experimental.lfcalculator",
+    "productName": "LF Calculator",
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**"
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "artifactName": "LF-Calculator-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "portable": {
+      "artifactName": "LF-Calculator.exe"
+    }
+  }
+}
